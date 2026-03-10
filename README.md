@@ -2,7 +2,7 @@
 
 A production-ready AI image generation web app powered by [Pollinations AI](https://pollinations.ai), and deployed on Cloudflare Pages + Workers.
 
-**Live Preview:** [https://ai-image-generator-5li.pages.dev](https://ai-image-generator-5li.pages.dev)
+**Live Preview:** [https://main.ai-image-generator-5li.pages.dev](https://main.ai-image-generator-5li.pages.dev)
 
 ![AI Image Generator Preview](./preview.png)
 
