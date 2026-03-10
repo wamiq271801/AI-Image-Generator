@@ -11,6 +11,13 @@ import {
     secondsRemaining,
 } from "./utils/cooldown";
 
+const PRESETS = [
+    { label: "🌆 Cyberpunk", text: "A highly detailed futuristic cyberpunk city street with neon lights, rain, and reflections, 8k resolution, photorealistic" },
+    { label: "🐉 Fantasy Dragon", text: "A majestic ancient dragon breathing fire on top of a mountain, epic fantasy art, highly detailed" },
+    { label: "🚀 Deep Space", text: "A stunning view of a glowing nebula and a highly detailed futuristic spaceship, space opera, cinematic lighting" },
+    { label: "🐶 Cute Puppy", text: "An impossibly cute fluffy puppy playing in a field of glowing magical flowers, soft cinematic lighting, 8k" },
+];
+
 export default function App() {
     const [prompt, setPrompt] = useState("");
     const [imageUrl, setImageUrl] = useState(null);
@@ -119,12 +126,29 @@ export default function App() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     {/* ── Left — Controls ──────────────────────────────────── */}
                     <div className="space-y-4">
-                        <PromptInput
-                            value={prompt}
-                            onChange={setPrompt}
-                            onSubmit={handleGenerate}
-                            disabled={isDisabled}
-                        />
+                        <div className="space-y-3">
+                            <PromptInput
+                                value={prompt}
+                                onChange={setPrompt}
+                                onSubmit={handleGenerate}
+                                disabled={isDisabled}
+                            />
+
+                            {/* Preset Prompts */}
+                            <div className="flex flex-wrap items-center gap-2 px-1">
+                                <span className="text-[11px] text-slate-500 font-medium tracking-wide uppercase">Try:</span>
+                                {PRESETS.map((preset) => (
+                                    <button
+                                        key={preset.label}
+                                        onClick={() => setPrompt(preset.text)}
+                                        disabled={isDisabled}
+                                        className="text-[11px] font-medium text-slate-400 bg-surface-border/20 hover:bg-brand-500/20 hover:text-brand-300 hover:border-brand-500/30 border border-white/5 hover:shadow-glow-sm px-3 py-1.5 rounded-full transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                        {preset.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
 
                         {cooldownSecs > 0 && (
                             <div className="glass-card p-4">
