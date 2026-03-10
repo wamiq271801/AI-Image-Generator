@@ -1,0 +1,22 @@
+name = "ai-image-generator"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# Publishable key
+POLLINATIONS_PUBLIC_KEY = "pk_xxxxx"
+
+# Global limit for how many images can be generated per week
+MAX_IMAGES_PER_WEEK = "1000"
+
+# KV Namespace for IP rate limiting
+# Run: npx wrangler kv:namespace create RATE_LIMIT_KV
+# Then paste the returned id below.
+[[kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = "YOUR_KV_ID_HERE"
+
+# Secrets (set via CLI — never committed):
+#   npx wrangler secret put POLLINATIONS_SECRET_KEY
+#   npx wrangler secret put TURNSTILE_SECRET_KEY
