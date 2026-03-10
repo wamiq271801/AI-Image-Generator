@@ -109,14 +109,14 @@ Start the Worker locally:
 ```bash
 cd worker
 npx wrangler dev --local
-# Running at http://localhost:8787
+# → API running at http://localhost:8787
 ```
 
-Start the frontend (dev proxy forwards /api → Worker):
+Start the frontend (dev proxy forwards `/api` → Worker):
 ```bash
 # From the project root
 npm run dev
-# Running at http://localhost:5173
+# → Frontend running at http://localhost:5173
 ```
 
 ---

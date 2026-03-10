@@ -99,6 +99,27 @@ Users can generate images directly without needing to sign up or pass CAPTCHAs.
 
 ---
 
+## Step 4: Local Development (Optional)
+
+If you want to test and modify the code locally before deploying to Cloudflare:
+
+1. **Start the Backend Worker locally:**
+   ```bash
+   cd worker
+   npx wrangler dev --local
+   # → API running at http://localhost:8787
+   ```
+
+2. **Start the Frontend locally:**
+   Open a new terminal window at the project root:
+   ```bash
+   npm run dev
+   # → Frontend running at http://localhost:5173
+   ```
+   *(Note: The Vite frontend config automatically proxies `/api` requests to port `8787` when running locally.)*
+
+---
+
 ## Rebranding & Monetization
 
 This project is licensed under Apache 2.0. You are welcome to:
